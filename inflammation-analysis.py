@@ -8,6 +8,17 @@ from inflammation import models, views
 from inflammation.compute_data import analyse_data, JSONDataSource, CSVDataSource
 
 
+parser = argparse.ArgumentParser(
+    description='A basic patient inflammation data management system')
+
+parser.add_argument(
+    'infiles',
+    nargs='+',
+    help='Input CSV(s) containing inflammation series for each patient')
+
+args = parser.parse_args()
+
+
 def main(args):
     """The MVC Controller of the patient inflammation data system.
 
